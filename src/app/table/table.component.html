@@ -1,0 +1,32 @@
+<div *ngIf="isLoading; else divCargado">
+    <h2 class="text-center">Cargando ... </h2>
+  </div>
+  <ng-template #divCargado>
+    <div class="col-8">
+      <div class="card-header bg-info">
+      </div>
+<div class="container-fluid">
+    <h1 class="mb-3">
+      Alumnos de comision 6
+    </h1>
+    <table class="table table-stripped">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Alumno</th> 
+          <th>Email</th>
+          <th>Celular</th>
+          <th>Ultima Entrega</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let alumnos of alumnos;let i =index">
+          <td>{{alumnos.id}}</td>
+          <td>{{alumnos.firstName}} {{alumnos.lastName}}</td>
+          <td>{{alumnos.email}}</td>
+          <td>{{alumnos.number}}</td>
+          <td>{{ alumnos.fechaDeEntregable | date:'MMMM - dd'}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
