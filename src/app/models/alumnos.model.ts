@@ -6,5 +6,6 @@ export class Alumnos {
       public email: string,
       public number: number,
       public fechaDeEntregable: Date,
+      public  promedio: number,
     ) {}
   }
