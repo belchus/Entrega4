@@ -1,0 +1,115 @@
+<div class="formcontainer">
+    <div class="card">
+        <div class="card-body">
+        <p>Agregar Alumnos </p> 
+<form class="nuevoForm"
+  [formGroup]="registerForm"
+  (ngSubmit)="onSubmit()"
+  class="form"
+  autocomplete="off"
+>
+  <div class="form-group">
+    <label for="nombre">Nombre:</label>
+    <input
+      type="text"
+      id="nombre"
+      formControlName="nombre"
+      class="form-control"
+      [ngClass]="{
+        'is-invalid':
+          nombreControl.invalid &&
+          (nombreControl.dirty || nombreControl.touched)
+      }"
+    />
+    <div
+      *ngIf="
+        nombreControl.invalid && (nombreControl.dirty || nombreControl.touched)
+      "
+      class="invalid-feedback"
+    >
+      <small *ngIf="nombreControl.hasError('required')"
+        >Este campo es obligatorio.</small
+      >
+      <small *ngIf="nombreControl.hasError('minlength')"
+        >el minimo de caracteres es 8.</small
+      >
+      <small *ngIf="nombreControl.hasError('maxlength')"
+        >el maximo de caracteres es 15</small
+      >
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="apellido">Apellido:</label>
+    <input
+      type="text"
+      id="apellido"
+      formControlName="apellido"
+      class="form-control"
+      [ngClass]="{
+        'is-invalid':
+          apellidoControl.invalid &&
+          (apellidoControl.dirty || apellidoControl.touched)
+      }"
+    />
+    <div
+      *ngIf="
+        apellidoControl.invalid &&
+        (apellidoControl.dirty || apellidoControl.touched)
+      "
+      class="invalid-feedback"
+    >
+      <small *ngIf="apellidoControl.hasError('required')"
+        >Este campo es obligatorio.</small
+      >
+      <small *ngIf="apellidoControl.hasError('minlength')"
+        >el minimo de caracteres es 8</small
+      >
+      <small *ngIf="apellidoControl.hasError('maxlength')"
+        >el maximo de caracteres es 15</small
+      >
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="email">Email:</label>
+    <input
+      type="email"
+      id="email"
+      formControlName="email"
+      class="form-control"
+      [ngClass]="{
+        'is-invalid':
+          emailControl.invalid && (emailControl.dirty || emailControl.touched)
+      }"
+    />
+    <div
+      *ngIf="
+        emailControl.invalid && (emailControl.dirty || emailControl.touched)
+      "
+      class="invalid-feedback"
+    >
+      <small *ngIf="emailControl.hasError('required')"
+        >Este campo es obligatorio.</small
+      >
+      <small *ngIf="emailControl.hasError('email')"
+        >email no valido.</small
+      >
+    </div>
+  </div>
+
+  <button
+    class="btn btn-outline-secondary mt-2"
+    (click)="closeForm()"
+  >
+    Cancelar
+  </button>
+  <button
+    type="submit"
+    class="btn btn-primary mt-2 float-end"
+    [disabled]="registerForm.invalid"
+  >
+    Agregar Alumno
+  </button>
+</form>
+</div>
+</div>
+</div>

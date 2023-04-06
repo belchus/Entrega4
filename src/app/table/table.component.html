@@ -15,10 +15,6 @@
           <th>Id</th>
           <th>Alumno</th> 
           <th>Email</th>
-          <th>Celular</th>
-          <th>Ultima Entrega</th>
-          <th>Nota</th>
-          <th>Estado</th>
         </tr>
       </thead>
       <tbody>
@@ -26,14 +22,6 @@
           <td>{{alumnos.id}}</td>
           <td>{{alumnos.firstName}} {{alumnos.lastName}}</td>
           <td>{{alumnos.email}}</td>
-          <td>{{alumnos.number}}</td>
-          <td>{{ alumnos.fechaDeEntregable | date:'MMMM - dd'}}</td>
-          <td>{{alumnos.promedio}}</td>
-          <td
-          class="text-center"
-          [ngClass]="alumnos.promedio < 6 ? 'bg-danger' : 'bg-success'">
-          {{ alumnos.promedio < 6 ? 'RINDE FINAL' : 'PROMOCIONA'}}
-        </td>
         </tr>
       </tbody>
     </table>
