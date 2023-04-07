@@ -13,58 +13,58 @@
     <input
       type="text"
       id="nombre"
-      formControlName="nombre"
+      formControlName="firstName"
       class="form-control"
       [ngClass]="{
         'is-invalid':
-          nombreControl.invalid &&
-          (nombreControl.dirty || nombreControl.touched)
+        registerForm.get('firstName')!.invalid &&
+          (registerForm.get('firstName')!.dirty || registerForm.get('firstName')!.touched)
       }"
     />
     <div
       *ngIf="
-        nombreControl.invalid && (nombreControl.dirty || nombreControl.touched)
+      registerForm.get('firstName')!.invalid && (registerForm.get('firstName')!.dirty || registerForm.get('firstName')!.touched)
       "
       class="invalid-feedback"
     >
-      <small *ngIf="nombreControl.hasError('required')"
+      <small *ngIf="registerForm.get('firstName')!.hasError('required')"
         >Este campo es obligatorio.</small
       >
-      <small *ngIf="nombreControl.hasError('minlength')"
+      <small *ngIf="registerForm.get('firstName')!.hasError('minlength')"
         >el minimo de caracteres es 8.</small
       >
-      <small *ngIf="nombreControl.hasError('maxlength')"
+      <small *ngIf="registerForm.get('firstName')!.hasError('maxlength')"
         >el maximo de caracteres es 15</small
       >
     </div>
   </div>
   <div class="form-group">
-    <label for="apellido">Apellido:</label>
+    <label for="lasName">Apellido:</label>
     <input
       type="text"
-      id="apellido"
-      formControlName="apellido"
+      id="lastName"
+      formControlName="lastName"
       class="form-control"
       [ngClass]="{
         'is-invalid':
-          apellidoControl.invalid &&
-          (apellidoControl.dirty || apellidoControl.touched)
+        registerForm.get('lastName')!.invalid &&
+          (registerForm.get('lastName')!.dirty || registerForm.get('lastName')!.touched)
       }"
     />
     <div
       *ngIf="
-        apellidoControl.invalid &&
-        (apellidoControl.dirty || apellidoControl.touched)
+      registerForm.get('lastName')!.invalid &&
+        (registerForm.get('lastName')!.dirty || registerForm.get('lastName')!.touched)
       "
       class="invalid-feedback"
     >
-      <small *ngIf="apellidoControl.hasError('required')"
+      <small *ngIf="registerForm.get('lastName')!.hasError('required')"
         >Este campo es obligatorio.</small
       >
-      <small *ngIf="apellidoControl.hasError('minlength')"
+      <small *ngIf="registerForm.get('lastName')!.hasError('minlength')"
         >el minimo de caracteres es 8</small
       >
-      <small *ngIf="apellidoControl.hasError('maxlength')"
+      <small *ngIf="registerForm.get('lastName')!.hasError('maxlength')"
         >el maximo de caracteres es 15</small
       >
     </div>
@@ -78,24 +78,101 @@
       class="form-control"
       [ngClass]="{
         'is-invalid':
-          emailControl.invalid && (emailControl.dirty || emailControl.touched)
+        registerForm.get('email')!.invalid && (registerForm.get('email')!.dirty || registerForm.get('email')!.touched)
       }"
     />
     <div
       *ngIf="
-        emailControl.invalid && (emailControl.dirty || emailControl.touched)
+      registerForm.get('email')!.invalid && (registerForm.get('email')!.dirty ||registerForm.get('email')!.touched)
       "
       class="invalid-feedback"
     >
-      <small *ngIf="emailControl.hasError('required')"
+      <small *ngIf="registerForm.get('email')!.hasError('required')"
         >Este campo es obligatorio.</small
       >
-      <small *ngIf="emailControl.hasError('email')"
+      <small *ngIf="registerForm.get('email')!.hasError('email')"
         >email no valido.</small
       >
     </div>
   </div>
-
+  <div class="form-group">
+    <label for="email">Celular:</label>
+    <input
+      type="number"
+      id="number"
+      formControlName="number"
+      class="form-control"
+      [ngClass]="{
+        'is-invalid':
+        registerForm.get('number')!.invalid && (registerForm.get('number')!.dirty || registerForm.get('number')!.touched)
+      }"
+    />
+    <div
+      *ngIf="
+      registerForm.get('number')!.invalid && (registerForm.get('number')!.dirty ||registerForm.get('number')!.touched)
+      "
+      class="invalid-feedback"
+    >
+      <small *ngIf="registerForm.get('number')!.hasError('required')"
+        >Este campo es obligatorio.</small
+      >
+      <small *ngIf="registerForm.get('number')!.hasError('email')"
+        >el numero ingresado no es valido.</small
+      >
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="fechaDeEntregable">Fecha de ultima entrega:</label>
+    <input
+      type="fechaDeEntregable"
+      id="fechaDeEntregable"
+      formControlName="fechaDeEntregable"
+      class="form-control"
+      [ngClass]="{
+        'is-invalid':
+        registerForm.get('fechaDeEntregable')!.invalid && (registerForm.get('fechaDeEntregable')!.dirty || registerForm.get('fechaDeEntregable')!.touched)
+      }"
+    />
+    <div
+      *ngIf="
+      registerForm.get('fechaDeEntregable')!.invalid && (registerForm.get('fechaDeEntregable')!.dirty ||registerForm.get('fechaDeEntregable')!.touched)
+      "
+      class="invalid-feedback"
+    >
+      <small *ngIf="registerForm.get('fechaDeEntregable')!.hasError('required')"
+        >Este campo es obligatorio.</small
+      >
+      <small *ngIf="registerForm.get('fechaDeEntregable')!.hasError('email')"
+        >la fecha ingresada no es valido.</small
+      >
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="promedio">Promedio:</label>
+    <input
+      type="promedio"
+      id="promedio"
+      formControlName="promedio"
+      class="form-control"
+      [ngClass]="{
+        'is-invalid':
+        registerForm.get('promedio')!.invalid && (registerForm.get('promedio')!.dirty || registerForm.get('promedio')!.touched)
+      }"
+    />
+    <div
+      *ngIf="
+      registerForm.get('promedio')!.invalid && (registerForm.get('promedio')!.dirty ||registerForm.get('promedio')!.touched)
+      "
+      class="invalid-feedback"
+    >
+      <small *ngIf="registerForm.get('promedio')!.hasError('required')"
+        >Este campo es obligatorio.</small
+      >
+      <small *ngIf="registerForm.get('promedio')!.hasError('email')"
+        >El promedio debe ser entre 1 y 10.</small
+      >
+    </div>
+  </div>
   <button
     class="btn btn-outline-secondary mt-2"
     (click)="closeForm()"

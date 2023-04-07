@@ -4,8 +4,8 @@ export class Alumnos {
       public firstName: string| null,
       public lastName: string| null,
       public email: string| null,
-     // public number: number,
-     // public fechaDeEntregable: Date,
-     // public  promedio: number,
+     public number: number| null,
+     public fechaDeEntregable: Date| null,
+     public  promedio: number| null,
     ) {}
   }

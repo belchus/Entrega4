@@ -7,6 +7,4 @@ platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.error(err));
  
 
-  console.log("Hola mundo") ;
-
   const alumnos:string[]=[]

@@ -8,14 +8,14 @@ import { Alumnos } from 'src/app/models/alumnos.model';
   styleUrls: ['./reactive-forms.component.css']
 })
 export class ReactiveFormsComponent {
-  nombreControl = new FormControl(
+ /* nombreControl = new FormControl(
     '',
     [
       Validators.required,
       Validators.minLength(8),
       Validators.maxLength(15)
     ]
-    )
+  )
 
   emailControl = new FormControl(
     '',
@@ -32,36 +32,40 @@ export class ReactiveFormsComponent {
       Validators.maxLength(15)
     ])
 
-    numeroControl= new FormControl(
-      '',
-      [
-        Validators.required,
-        Validators.minLength(8),
-        Validators.maxLength(8)
-      ])
+  numeroControl = new FormControl<number | null>(
+    null,
+    [
+      Validators.required,
+      Validators.minLength(8),
+      Validators.maxLength(8)
+    ])
 
-      entregableControl= new FormControl(
-        '',
-        [
-          Validators.required,
-        ])
-      promedioControl= new FormControl(
-          '',
-          [
-            Validators.required,
-            Validators.minLength(0),
-            Validators.maxLength(10)
-          ])
+  entregableControl = new FormControl<Date | null>(
+    null,
+    [
+      Validators.required,
+    ])
+  promedioControl = new FormControl<number | null>(
+    null,
+    [
+      Validators.required,
+      Validators.minLength(0),
+      Validators.maxLength(10)
+    ])
+    */
+
   registerForm: FormGroup;
 
 
   constructor(public formBuilder: FormBuilder) {
 
     this.registerForm = this.formBuilder.group({
-    firstName:this.nombreControl,
-    lastName: this.apellidoControl,
-    email:this.emailControl
-     
+      firstName:['',Validators.required,Validators.minLength(8)],
+      lastName: ['',Validators.required,Validators.minLength(8)],
+      email: ['',Validators.required,Validators.email,Validators.minLength(15)],
+      number:[null,Validators.required,Validators.min(8000000),Validators.max(1000000)],
+      fechaDeEntregable:[null,Validators.required],
+      promedio:[null,Validators.required,Validators.min(1),Validators.max(10)],
     });
   }
 
@@ -71,20 +75,22 @@ export class ReactiveFormsComponent {
 
 
   get nombreControlIsInvalid(): boolean {
-    return !!(this.nombreControl?.invalid && this.nombreControl.touched);
+    return !!(this.registerForm.get('firstName')?.invalid && this.registerForm.get('firstName')!.touched);
   }
 
   onSubmit() {
-    if (this.registerForm.invalid){
+    if (this.registerForm.invalid) {
       this.registerForm.markAllAsTouched();
       return;
     }
     const alumno: Alumnos = {
       id: this.newId(),
-      firstName:this.nombreControl.value,
-      lastName: this.apellidoControl.value,
-      email: this.emailControl.value,
-
+      firstName: this.registerForm.get('firstName')!.value,
+      lastName: this.registerForm.get('lastName')!.value,
+      email: this.registerForm.get('email')!.value,
+      number: this.registerForm.get('number')!.value,
+      fechaDeEntregable: this.registerForm.get('fechaDeEntregable')!.value,
+      promedio: this.registerForm.get('promedio')!.value
     };
     this.addAlumno.emit(alumno);
     this.registerForm.reset();
