@@ -95,32 +95,7 @@
       >
     </div>
   </div>
-  <div class="form-group">
-    <label for="email">Celular:</label>
-    <input
-      type="number"
-      id="number"
-      formControlName="number"
-      class="form-control"
-      [ngClass]="{
-        'is-invalid':
-        registerForm.get('number')!.invalid && (registerForm.get('number')!.dirty || registerForm.get('number')!.touched)
-      }"
-    />
-    <div
-      *ngIf="
-      registerForm.get('number')!.invalid && (registerForm.get('number')!.dirty ||registerForm.get('number')!.touched)
-      "
-      class="invalid-feedback"
-    >
-      <small *ngIf="registerForm.get('number')!.hasError('required')"
-        >Este campo es obligatorio.</small
-      >
-      <small *ngIf="registerForm.get('number')!.hasError('email')"
-        >el numero ingresado no es valido.</small
-      >
-    </div>
-  </div>
+
   <div class="form-group">
     <label for="fechaDeEntregable">Fecha de ultima entrega:</label>
     <input

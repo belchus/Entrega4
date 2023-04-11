@@ -60,12 +60,12 @@ export class ReactiveFormsComponent {
   constructor(public formBuilder: FormBuilder) {
 
     this.registerForm = this.formBuilder.group({
-      firstName:['',Validators.required,Validators.minLength(8)],
-      lastName: ['',Validators.required,Validators.minLength(8)],
-      email: ['',Validators.required,Validators.email,Validators.minLength(15)],
-      number:[null,Validators.required,Validators.min(8000000),Validators.max(1000000)],
-      fechaDeEntregable:[null,Validators.required],
-      promedio:[null,Validators.required,Validators.min(1),Validators.max(10)],
+      firstName:['',[Validators.required,Validators.minLength(8)]],
+      lastName: ['',[Validators.required,Validators.minLength(8)]],
+      email: ['',[Validators.required,Validators.email,Validators.minLength(15)]],
+    //  number:[null,[Validators.required,Validators.min(8000000),Validators.max(1000000),]],
+      fechaDeEntregable:[null,[Validators.required]],
+      promedio:[null,[Validators.required,Validators.min(1),Validators.max(10)]],
     });
   }
 
@@ -78,9 +78,10 @@ export class ReactiveFormsComponent {
     return !!(this.registerForm.get('firstName')?.invalid && this.registerForm.get('firstName')!.touched);
   }
 
-  onSubmit() {
+  onSubmit():void {
     if (this.registerForm.invalid) {
       this.registerForm.markAllAsTouched();
+      console.log(this.registerForm);
       return;
     }
     const alumno: Alumnos = {
@@ -88,12 +89,14 @@ export class ReactiveFormsComponent {
       firstName: this.registerForm.get('firstName')!.value,
       lastName: this.registerForm.get('lastName')!.value,
       email: this.registerForm.get('email')!.value,
-      number: this.registerForm.get('number')!.value,
+     // number: this.registerForm.get('number')!.value,
       fechaDeEntregable: this.registerForm.get('fechaDeEntregable')!.value,
       promedio: this.registerForm.get('promedio')!.value
     };
     this.addAlumno.emit(alumno);
     this.registerForm.reset();
+    //this.alumno.push(this.registerForm.value);
+    console.log(this.registerForm);
     this.close.emit(true);
   }
 
@@ -105,4 +108,5 @@ export class ReactiveFormsComponent {
     this.close.emit(true);
   }
 
+ 
 }
