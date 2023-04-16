@@ -1,11 +1,11 @@
 export class Alumnos {
     constructor(
       public id: number,
-      public firstName: string| null,
-      public lastName: string| null,
-      public email: string| null,
+      public firstName: string,
+      public lastName: string,
+      public email: string,
    //  public number: number| null,
-     public fechaDeEntregable: Date| null,
-     public  promedio: number| null,
+     public fechaDeEntregable: Date,
+     public  promedio: number,
     ) {}
   }

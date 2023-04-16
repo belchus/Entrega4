@@ -60,9 +60,9 @@ export class ReactiveFormsComponent {
   constructor(public formBuilder: FormBuilder) {
 
     this.registerForm = this.formBuilder.group({
-      firstName:['',[Validators.required,Validators.minLength(8)]],
-      lastName: ['',[Validators.required,Validators.minLength(8)]],
-      email: ['',[Validators.required,Validators.email,Validators.minLength(15)]],
+      firstName:['',[Validators.required,Validators.minLength(4)]],
+      lastName: ['',[Validators.required,Validators.minLength(4)]],
+      email: ['',[Validators.required,Validators.email,Validators.minLength(11)]],
     //  number:[null,[Validators.required,Validators.min(8000000),Validators.max(1000000),]],
       fechaDeEntregable:[null,[Validators.required]],
       promedio:[null,[Validators.required,Validators.min(1),Validators.max(10)]],
@@ -95,7 +95,6 @@ export class ReactiveFormsComponent {
     };
     this.addAlumno.emit(alumno);
     this.registerForm.reset();
-    //this.alumno.push(this.registerForm.value);
     console.log(this.registerForm);
     this.close.emit(true);
   }
