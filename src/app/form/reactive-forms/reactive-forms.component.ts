@@ -92,10 +92,13 @@ export class ReactiveFormsComponent {
      // number: this.registerForm.get('number')!.value,
       fechaDeEntregable: this.registerForm.get('fechaDeEntregable')!.value,
       promedio: this.registerForm.get('promedio')!.value
+     
     };
-    this.addAlumno.emit(alumno);
-    this.registerForm.reset();
     console.log(this.registerForm);
+    this.addAlumno.emit(alumno);
+    console.log(this.registerForm);
+    this.registerForm.reset();
+ 
     this.close.emit(true);
   }
 
