@@ -1,9 +1,13 @@
 <app-toolbar></app-toolbar>
+<app-observables></app-observables>
+<app-dashboard></app-dashboard>
+
 
 <button (click)="mostrarAlumnos = !mostrarAlumnos">Show Alumno</button>
 
 <app-alumnos *ngIf="mostrarAlumnos"></app-alumnos>
 
 <button (click)="mostrarProfesores = !mostrarProfesores">Show Profesor</button> 
+
 
 <app-profesores *ngIf="mostrarProfesores"></app-profesores>

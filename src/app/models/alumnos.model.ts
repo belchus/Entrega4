@@ -9,3 +9,9 @@ export class Alumnos {
      public  promedio: number,
     ) {}
   }
+
+  export interface Usuario {
+    id: number;
+    name:string;
+    email:string;
+  }

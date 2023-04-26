@@ -3,3 +3,5 @@
     --toolbar-height:64px;
     --sidebar-width:230px;
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

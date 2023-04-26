@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 export interface Alumno {
   id: number;
@@ -9,12 +9,15 @@ export interface Alumno {
 }
 
 export class ApiService {
-
+ private authUser$ = new Subject <Alumno>();
   constructor(
     private entityName: string
   ) { }
 
+ObtenerUsuario():Observable<Alumno>{
+  return this.authUser$.asObservable();
 
+}
   getById(id: number) {
     return {
       id,
