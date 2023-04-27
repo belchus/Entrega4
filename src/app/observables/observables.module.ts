@@ -7,7 +7,8 @@ import {MatButtonModule} from '@angular/material/button';
 import { ObservablesComponent } from './observables.component';
 
 @NgModule({
-  declarations: [],
+  // AGREGUE LA DECLARACION PARA EXPORTARLO
+  declarations: [ObservablesComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -16,7 +17,8 @@ import { ObservablesComponent } from './observables.component';
     MatInputModule
   ],
   exports: [
-   ObservablesComponent
+    // ESTA LINEA CONTIENE ERROR, NO SE PUEDE EXPORTAR UN COMPONENTE QUE NO HA SIDO DECLARADO EN ESTE MODULO
+    ObservablesComponent
   ],
 })
 export class ObservablesModule { }

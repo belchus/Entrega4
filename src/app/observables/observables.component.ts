@@ -12,7 +12,7 @@ import { AuthService } from '../services/auth.service';
 })
 export class ObservablesComponent implements OnInit{
 
-  
+
 isLoggedIn=new Subject<Usuario>();
 
 emailControl = new FormControl();
@@ -25,7 +25,7 @@ nombre:this.nombreControl,
  })
 
 
-constructor(private notificationService: NotificationsService){}
+constructor(private notificationService: NotificationsService, private authService: AuthService){}
 async ngOnInit():Promise<void>{
   this.escucharLoggedIn()
     const obtenerUsuario = new Promise((resolve,reject) => {
@@ -34,12 +34,12 @@ async ngOnInit():Promise<void>{
         nombre:'Lucas'
       })
     });
-    
+
     obtenerUsuario.then((valor)=> console.log(valor));
   const obs$=from (obtenerUsuario)
   obs$
    .pipe(
-    
+
    )
    .subscribe((valor)=> console.log(valor))
   }
@@ -53,6 +53,7 @@ escucharLoggedIn():void{
 login():void{
  console.log(this.authForm.value);
 
+ // ACA FALTA LA INYECCION EN EL CONSTRUCTOR
   this.authService.login({
   ...(this.authForm.value as any),
   id:54,
