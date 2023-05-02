@@ -7,7 +7,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { ObservablesComponent } from './observables.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [ObservablesComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,

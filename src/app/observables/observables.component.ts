@@ -11,21 +11,15 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./observables.component.css']
 })
 export class ObservablesComponent implements OnInit{
-
-  
 isLoggedIn=new Subject<Usuario>();
-
 emailControl = new FormControl();
-
 nombreControl = new FormControl();
-
 authForm=new FormGroup({
 email:this.emailControl,
 nombre:this.nombreControl,
  })
 
-
-constructor(private notificationService: NotificationsService){}
+constructor(private notificationService: NotificationsService, private authService: AuthService){}
 async ngOnInit():Promise<void>{
   this.escucharLoggedIn()
     const obtenerUsuario = new Promise((resolve,reject) => {
@@ -35,18 +29,19 @@ async ngOnInit():Promise<void>{
       })
     });
     
+
     obtenerUsuario.then((valor)=> console.log(valor));
   const obs$=from (obtenerUsuario)
   obs$
    .pipe(
     
+
    )
    .subscribe((valor)=> console.log(valor))
   }
  crearUsuario():void{
   this.notificationService.mostrarMensaje('el usuario fue creado')
  }
-
 escucharLoggedIn():void{
   this.isLoggedIn.subscribe((valor)=> console.log(valor));
 }
@@ -56,7 +51,6 @@ login():void{
   this.authService.login({
   ...(this.authForm.value as any),
   id:54,
-
 })
 }
 }

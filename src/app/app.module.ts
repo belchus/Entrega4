@@ -6,8 +6,8 @@ import { AlumnosModule } from './alumnos/alumnos.module';
 import { ProfesoresModule } from './profesores/profesores.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ObservablesComponent } from './observables/observables.component';
 import { ObservablesModule } from './observables/observables.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +20,8 @@ import { ObservablesModule } from './observables/observables.module';
     AlumnosModule,
     ProfesoresModule,
     BrowserAnimationsModule,
-    ObservablesModule
+    ObservablesModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './dashboard.component';
-import { ObservablesComponent } from '../observables/observables.component';
 
 
 
@@ -9,7 +8,6 @@ import { ObservablesComponent } from '../observables/observables.component';
   declarations: [],
   imports: [
     CommonModule,
-    ObservablesComponent,
   ],
   exports: [
    DashboardComponent
