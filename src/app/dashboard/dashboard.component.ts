@@ -20,7 +20,7 @@ destroyed$ = new Subject<void>();
 
   constructor(private authService:AuthService){
     this.miSusbscripcionObs$ = this.authService.obtenerUsuarioAutenticado()
-this.authService.obtenerUsuarioAutenticado()
+    this.authService.obtenerUsuarioAutenticado()
 .pipe(
   takeUntil(this.destroyed$)
 )

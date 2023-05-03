@@ -1,4 +1,4 @@
-<form [formGroup]="authForm">
+<form [formGroup]="authForm" (ngSubmit)="login()">
   <mat-form-field >
       <mat-label>Email</mat-label>
       <input [formControl]="emailControl"  placeholder="email" matInput/>
@@ -7,6 +7,6 @@
       <mat-label>Nombre</mat-label>
       <input [formControl]="nombreControl" matInput placeholder="nombre" matInput/>
     </mat-form-field>
-    <button>Ingresar</button>
+    <button type="submit">Ingresar</button>
 </form>
 
